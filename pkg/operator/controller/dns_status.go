@@ -209,7 +209,6 @@ func computeDNSProgressingCondition(oldCondition *operatorv1.OperatorCondition, 
 		// It's progressing when have < want.  If have >= want, that's okay.
 		if have < want {
 			messages = append(messages, fmt.Sprintf("Have %d up-to-date DNS pods, want %d.", have, want))
-		}
 
 		haveSelector := dnsDaemonset.Spec.Template.Spec.NodeSelector
 		wantSelector := nodeSelectorForDNS(dns)
