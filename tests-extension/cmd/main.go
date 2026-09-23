@@ -18,10 +18,10 @@ import (
 	framework "k8s.io/kubernetes/test/e2e/framework"
 
 	// Import testdata package from this module
-	_ "github.com/openshift/cluster-dns-operator-tests-extension/test/e2e/testdata"
+	_ "github.com/openshift/cluster-dns-operator-tests-extension/test/qe/e2e/testdata"
 
 	// Import test packages from this module
-	_ "github.com/openshift/cluster-dns-operator-tests-extension/test/e2e"
+	_ "github.com/openshift/cluster-dns-operator-tests-extension/test/qe/e2e"
 )
 
 func main() {
@@ -43,7 +43,7 @@ func main() {
 
 	componentSpecs := allSpecs.Select(func(spec *et.ExtensionTestSpec) bool {
 		for _, loc := range spec.CodeLocations {
-			if strings.Contains(loc, "/test/e2e/") && !strings.Contains(loc, "/go/pkg/mod/") && !strings.Contains(loc, "/vendor/") {
+			if strings.Contains(loc, "/test/qe/e2e/") && !strings.Contains(loc, "/go/pkg/mod/") && !strings.Contains(loc, "/vendor/") {
 				return true
 			}
 		}
